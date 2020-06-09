@@ -1,4 +1,4 @@
-class pageHome extends HTMLElement {
+class pageTwo extends HTMLElement {
   constructor() {
     super();
 
@@ -15,4 +15,4 @@ class pageHome extends HTMLElement {
   }
 }
 
-customElements.define("page-home");
+customElements.define("page-two", pageTwo);

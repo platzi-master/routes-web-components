@@ -4,7 +4,7 @@ class customHeader extends HTMLElement {
   constructor() {
     super();
 
-    this.attachShadow({ mde: "open" });
+    this.attachShadow({ mode: "open" });
 
     this.render();
   }
@@ -33,23 +33,28 @@ class customHeader extends HTMLElement {
     return `
       <style>
         :host {
-          height: 75px;
-          background: #7a7af5
-          box-shadow: 1px 0 5px 0 black;
+          display: block; 
+          top: 0;
+          background: #46cff3;
+          position:sticky;
+          height: 80px;
+          box-shadow: 1px 0px 5px 0px black;
         }
         .custom-header__ul {
           display: flex;
-          justify-content: flex-end;
           margin: 0;
-          padding: 0;
+          justify-content: flex-end;
+          height: 100%;
         }
         .custom-header__li {
-          margin-right: 25px;
+          align-self: center;
           list-style: none;
+          margin-right: 25px;
         }
-        a {
+        .custom-header__li a {
           text-decoration: none;
-
+          color:white;
+          font-size: 25px;
         }
       </style>
     `;
@@ -66,9 +71,11 @@ class customHeader extends HTMLElement {
 
   connectedCallback() {
     this.shadowRoot
-      .querySelector("custom-header__li a")
-      .forEach((atag, index) => {
-        atag.addEventListener("click", e);
+      .querySelectorAll(".custom-header__li a")
+      .forEach((aTag, index) => {
+        aTag.addEventListener("click", (e) => {
+          this.handleClick(index);
+        });
       });
   }
 }
