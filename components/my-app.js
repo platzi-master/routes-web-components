@@ -32,7 +32,12 @@ class myApp extends HTMLElement {
         break;
       case 2:
         return `
-          <page-2></page-2>
+          <page-one></page-one>
+        `;
+        break;
+      case 3:
+        return `
+          <page-two></page-two>
         `;
         break;
 
